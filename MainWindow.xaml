@@ -1,0 +1,93 @@
+﻿<Window x:Class="ProductManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductManagement"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Background="#212121" BorderBrush="#333333" BorderThickness="1" CornerRadius="8"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Login" FontWeight="Bold" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Margin="0 0 0 20" Foreground="White" />
+
+                <StackPanel Grid.Row="1" Margin="0 0 0 10">
+                    <Label Content="Username" FontSize="14" Foreground="White" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Grid.Column="0" Kind="EmailOutline" VerticalAlignment="Center" Margin="5"
+                                                 Foreground="White" />
+                        <TextBox x:Name="UsernameTextBox" Margin="0 5 0 0" Padding="10" FontSize="14" BorderThickness="0" Background="Transparent"
+                                 Foreground="White" Grid.Column="1" >
+                            <TextBox.Style>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="CaretBrush" Value="White" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                            <Setter Property="Background" Value="#333333" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Margin="0 0 0 10">
+                    <Label Content="Password" FontSize="14" Foreground="White" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:PackIcon Grid.Column="0" Kind="LockOutline" VerticalAlignment="Center" Margin="5"
+                                                 Foreground="White" />
+                        <PasswordBox x:Name="PasswordBox" Margin="0 5 0 0" Padding="10" FontSize="14" BorderThickness="0" Background="Transparent"
+                                     Foreground="White" Grid.Column="1" >
+                            <PasswordBox.Style>
+                                <Style TargetType="PasswordBox">
+                                    <Setter Property="CaretBrush" Value="White" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                            <Setter Property="Background" Value="#333333" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </PasswordBox.Style>
+                        </PasswordBox>
+                    </Grid>
+                </StackPanel>
+
+                <Button Grid.Row="3" Content="Login" Click="LoginButton_Click" Width="120" Height="40" HorizontalAlignment="Center"
+                        Background="#0078D7" Foreground="White" FontSize="16" FontWeight="Bold" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
